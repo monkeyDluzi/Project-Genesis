@@ -33,12 +33,25 @@ function updateDragon() {
 function think() {
     seeEnemy();
 
+    if (brain.health <= 0) {
+        onLose();
+        return;
+    }
+
+    if (brain.enemyHealth <= 0) {
+        onWin();
+        return;
+    }
+
     if (brain.health < LOW_HEALTH) {
         runAway();
         return;
     }
 
     chaseEnemy();
+
+    attack();
+}
 
 
 function seeEnemy() {
