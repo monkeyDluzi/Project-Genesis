@@ -1,7 +1,7 @@
-const dragon = document.getElementById("Project-Mahoraga");
+const dragon = document.getElementById("Mahoraga");
 
 const brain = {
-    name: "Project-Mahoraga",
+    name: "Mahoraga",
     health: 100,
 
     x: 100,
