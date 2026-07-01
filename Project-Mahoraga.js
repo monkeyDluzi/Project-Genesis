@@ -42,3 +42,5 @@ setInterval(() => {
     think();
     updateDragon();
 }, 30);
+
+const Sukuna = document.getElementById("Sukuna"); 
