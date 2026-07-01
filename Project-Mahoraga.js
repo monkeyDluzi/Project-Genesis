@@ -1,13 +1,12 @@
+const dragon = document.getElementById("Project-Mahoraga");
+
 const brain = {
-    // Identity
     name: "Project-Mahoraga",
     health: 100,
 
-    // Self info 
-    x: 0,
-    y: 0,
+    x: 100,
+    y: 100,
 
-    // Enemy info 
     enemyX: 0,
     enemyY: 0,
     enemyHealth: 100,
@@ -15,8 +14,6 @@ const brain = {
     enemyDamageTaken: 0
 };
 
-const dragon = document.getElementById("Project-Mahoraga");
-
 dragon.style.position = "absolute";
-dragon.style.left = "100px";
-dragon.style.top = "100px";
+dragon.style.left = brain.x + "px";
+dragon.style.top = brain.y + "px";
