@@ -27,6 +27,16 @@ function think() {
     brain.x += 2; // moves right slowly
 }
 
+function think() {
+    let distance = brain.enemyX - brain.x;
+
+    if (distance > 0) {
+        brain.x += 2; // move right
+    } else if (distance < 0) {
+        brain.x -= 2; // move left
+    }
+}
+
 // game loop
 setInterval(() => {
     think();
