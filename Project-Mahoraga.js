@@ -14,3 +14,9 @@ const brain = {
     enemyAttackDamage: 25,
     enemyDamageTaken: 0
 };
+
+const dragon = document.getElementById("Project-Mahoraga");
+
+dragon.style.position = "absolute";
+dragon.style.left = "100px";
+dragon.style.top = "100px";
