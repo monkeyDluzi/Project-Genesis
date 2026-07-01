@@ -1,6 +1,7 @@
 const dragon = document.getElementById("Mahoraga");
 const sukuna = document.getElementById("Sukuna");
-
+const ATTACK_RANGE = 50;
+const DAMAGE = 10;
 const LOW_HEALTH = 30;
 
 const brain = {
@@ -71,6 +72,42 @@ function onWin() {
     brain.memory.wins++;
 }
 
+function getDistance() {
+    return Math.abs(brain.enemyX - brain.x);
+}
+
+function attack() {
+    if (getDistance() < ATTACK_RANGE) {
+        brain.enemyHealth -= DAMAGE;
+    }
+}
+
+function enemyAttack() {
+    brain.health -= brain.enemyAttackDamage;
+}
+
+function think() {
+    seeEnemy();
+
+    if (brain.health <= 0) {
+        onLose();
+        return;
+    }
+
+    if (brain.enemyHealth <= 0) {
+        onWin();
+        return;
+    }
+
+    if (brain.health < LOW_HEALTH) {
+        runAway();
+        return;
+    }
+
+    chaseEnemy();
+
+    attack();
+}    
 
 setInterval(() => {
     think();
