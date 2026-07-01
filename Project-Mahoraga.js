@@ -1,5 +1,7 @@
 const dragon = document.getElementById("Mahoraga");
-const Sukuna = document.getElementById("Sukuna"); 
+const sukuna = document.getElementById("Sukuna");
+
+const LOW_HEALTH = 30;
 
 const brain = {
     name: "Mahoraga",
@@ -12,14 +14,14 @@ const brain = {
     enemyY: 200,
     enemyHealth: 100,
     enemyAttackDamage: 25,
-    enemyDamageTaken: 0
-    brain.memory = {
-    wins: 0,
-    losses: 0
-};
+    enemyDamageTaken: 0,
+
+    memory: {
+        wins: 0,
+        losses: 0
+    }
 };
 
-// make it visible on screen
 dragon.style.position = "absolute";
 
 function updateDragon() {
@@ -27,48 +29,35 @@ function updateDragon() {
     dragon.style.top = brain.y + "px";
 }
 
-// movement logic
 function think() {
     seeEnemy();
 
-    // 🛑 SURVIVAL FIRST
     if (brain.health < LOW_HEALTH) {
         runAway();
         return;
     }
 
-    // otherwise continue fighting logic
     chaseEnemy();
-}
 
-    return bestEnemy;
-}    
-
-    if (distance > 0) {
-        brain.x += 2; // move right
-    } else if (distance < 0) {
-        brain.x -= 2; // move left
-    }
-}
 
 function seeEnemy() {
-    let target = chooseTarget();
-
-    brain.enemyX = target.x;
-    brain.enemyHealth = target.health;
+    brain.enemyX = parseInt(sukuna.style.left || 0);
+    brain.enemyY = parseInt(sukuna.style.top || 0);
 }
+
 
 function runAway() {
     let distance = brain.enemyX - brain.x;
 
     if (distance > 0) {
-        brain.x -= 3; // run left
+        brain.x -= 3;
     } else {
-        brain.x += 3; // run right
+        brain.x += 3;
     }
 }
 
-function chaseEnemy() {
+
+ function chaseEnemy() {
     let distance = brain.enemyX - brain.x;
 
     if (distance > 0) {
@@ -83,7 +72,6 @@ function onWin() {
 }
 
 
-// game loop
 setInterval(() => {
     think();
     updateDragon();
@@ -92,3 +80,11 @@ setInterval(() => {
 
 
 
+
+
+
+
+    
+
+    
+}
